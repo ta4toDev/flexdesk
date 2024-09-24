@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50bade07-e0b2-4fa9-b7c4-feb32313b9ba" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/html/flexdesk/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/html/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
+    <include_path>
+      <path value="$PROJECT_DIR$/html/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/html/vendor/composer" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/composer" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/html/flexdesk/vendor/doctrine/persistence" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2keFZFtyiqDGBKIiNHwgR1FAgO2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/irina/PhpstormProjects/customer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/irina/.config/JetBrains/PhpStorm2024.2/node/versions/20.16.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/snap/phpstorm/420/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html/flexdesk/src" />
+      <recent name="$PROJECT_DIR$/html/flexdesk/assets/assets/images" />
+      <recent name="$PROJECT_DIR$/html/flexdesk/assets/components/assets/images" />
+      <recent name="$PROJECT_DIR$/html/flexdesk/assets/components" />
+      <recent name="$PROJECT_DIR$/html/flexdesk/assets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/html/flexdesk/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PS-242.21829.154" />
+        <option value="bundled-php-predefined-a98d8de5180a-4d9f4c849d09-com.jetbrains.php.sharedIndexes-PS-242.21829.154" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50bade07-e0b2-4fa9-b7c4-feb32313b9ba" name="Changes" comment="" />
+      <created>1723636188711</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723636188711</updated>
+      <workItem from="1723636189833" duration="7388000" />
+      <workItem from="1723705132044" duration="25424000" />
+      <workItem from="1726734528300" duration="29000" />
+      <workItem from="1726734558633" duration="14523000" />
+      <workItem from="1726820852276" duration="2899000" />
+      <workItem from="1726914618152" duration="2495000" />
+      <workItem from="1726919189095" duration="6835000" />
+      <workItem from="1727009211708" duration="3256000" />
+      <workItem from="1727074421918" duration="20442000" />
+      <workItem from="1727161307313" duration="12844000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
