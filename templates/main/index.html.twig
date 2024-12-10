@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .centered-container {
+            display: flex;
+            justify-content: space-around; /* Elemente horizontal verteilen */
+            align-items: center; /* Elemente vertikal ausrichten */
+            height: 70vh; /* Setzt die Höhe des Containers */
+            padding: 20px;
+        }
+
+        .text-container {
+            max-width: 50%;
+            text-align: left; /* Text linksbündig */
+        }
+
+        .image-container {
+            max-width: 45%; /* Bild soll nicht den ganzen Platz einnehmen */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto; /* Bildgrößenverhältnis beibehalten */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .fade-in-delayed {
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        .btn-primary {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            border-radius: 8px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="centered-container">
+        <div>
+            <h1 class="fade-in">Willkommen zu FlexDesk!</h1>
+            <p class="fade-in-delayed">Verwalten Sie Ihre Büro- und Homeoffice-Tage und reservieren Sie Ihren Arbeitsplatz.</p>
+            <a href="{{ path('app_login') }}" class="btn btn-primary btn-lg">Login</a>
+        </div>
+        <div class="image-container">
+            <img src="/images/flexdesk-image.jpg" alt="FlexDesk Vorschau">
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Benutzerliste{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Benutzerliste</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vorname</th>
+                <th>Name</th>
+                <th>E-Mail</th>
+                <th>Aktionen</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in benutzer %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.vorname }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a href="{{ path('benutzer_bearbeiten', { id: user.id }) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
+                        <a href="{{ path('benutzer_loeschen', { id: user.id }) }}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('Möchten Sie diesen Benutzer wirklich löschen?');">Löschen</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">Keine Benutzer gefunden.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('benutzer_erstellen') }}" class="btn btn-success mt-3">Neuen Benutzer erstellen</a>
+    </div>
+{% endblock %}

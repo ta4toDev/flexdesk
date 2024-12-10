@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buchungen{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="alert alert-info text-center">
+                <h2>Buchung vornehmen</h2>
+            </div>
+            <div class="card-body">
+                <!-- Flash-Nachrichten -->
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                <!-- Formular für Buchung -->
+                <form method="post" action="{{ path('buchung_speichern') }}">
+                    <div class="row">
+                        <!-- Linke Seite -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="buchung_datum" class="form-label">Datum:</label>
+                                <input type="text" id="buchung_datum" name="datum" class="form-control" placeholder="Wähle ein Datum" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="type" class="form-label">Buchungstyp:</label>
+                                <select id="type" name="type" class="form-select">
+                                    <option value="office">Büro-Tag</option>
+                                    <option value="home">Homeoffice-Tag</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="startTime" class="form-label">Startzeit:</label>
+                                <input type="time" id="startTime" name="startTime" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="endTime" class="form-label">Endzeit:</label>
+                                <input type="time" id="endTime" name="endTime" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- Rechte Seite -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="stock" class="form-label">Stockwerk:</label>
+                                <select id="stock" name="stock" class="form-select">
+                                    <option value="1">1. Stock</option>
+                                    <option value="2">2. Stock</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="raum" class="form-label">Raum:</label>
+                                <select id="raum" name="raum" class="form-select">
+                                    <option value="1">Raum 1</option>
+                                    <option value="2">Raum 2</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tisch" class="form-label">Tisch:</label>
+                                <select id="tisch" name="tisch" class="form-select">
+                                    <option value="1">Tisch 1</option>
+                                    <option value="2">Tisch 2</option>
+                                    <option value="3">Tisch 3</option>
+                                    <option value="4">Tisch 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Buchung abschließen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr('#buchung_datum', {
+                altInput: true,
+                altFormat: 'd.m.Y',
+                dateFormat: 'Y-m-d',
+                minDate: 'today',
+            });
+        });
+    </script>
+{% endblock %}

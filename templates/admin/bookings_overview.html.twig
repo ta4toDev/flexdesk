@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buchungsübersicht{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Buchungsübersicht</h1>
+
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Benutzer</th>
+                <th>E-Mail</th>
+                <th>Datum</th>
+                <th>Startzeit</th>
+                <th>Endzeit</th>
+                <th>Stock</th>
+                <th>Raum</th>
+                <th>Tisch</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for buchung in buchungen %}
+                <tr>
+                    <td>{{ buchung.id }}</td>
+                    <td>{{ buchung.benutzer.vorname }} {{ buchung.benutzer.name }}</td>
+                    <td>{{ buchung.benutzer.email }}</td>
+                    <td>{{ buchung.datum|date('Y-m-d') }}</td>
+                    <td>{{ buchung.startzeit|date('H:i') }}</td>
+                    <td>{{ buchung.endzeit|date('H:i') }}</td>
+                    <td>{{ buchung.stock }}</td>
+                    <td>{{ buchung.raum }}</td>
+                    <td>{{ buchung.tisch }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9" class="text-center">Keine Buchungen gefunden</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

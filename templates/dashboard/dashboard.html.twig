@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <!-- Flash-Nachrichten -->
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg">
+                    <div class="alert alert-info text-center">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Willkommen-Bereich -->
+                        <div class="text-center mb-4">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="me-3">
+                                    <h1>Willkommen, {{ app.user.vorname }}!</h1>
+                                    <p>Verwalten Sie Ihre Büro- und Homeoffice-Tage und reservieren Sie Ihren Arbeitsplatz.</p>
+                                </div>
+                                <div>
+                                    <img src="{{ app.user.foto ? asset('uploads/photos/' ~ app.user.foto) : asset('uploads/photos/default-profile.png') }}"
+                                         alt="Profilbild"
+                                         class="rounded-circle border border-primary"
+                                         style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anzahl der Buchungen -->
+                        <div class="alert alert-info text-center">
+                            <h4>Buchungen in diesem Monat: {{ anzahlBuchungenDieserMonat }}</h4>
+                        </div>
+
+                        <!-- Buchungen anzeigen -->
+                        <div class="table-responsive mt-4">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                <tr>
+                                    <th>Datum</th>
+                                    <th>Startzeit</th>
+                                    <th>Endzeit</th>
+                                    <th>Stockwerk</th>
+                                    <th>Raum</th>
+                                    <th>Tisch</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if buchungen is not empty %}
+                                    {% for buchung in buchungen %}
+                                        <tr>
+                                            <td>{{ buchung.datum|date('d-m-Y') }}</td>
+                                            <td>{{ buchung.startzeit|date('H:i') }}</td>
+                                            <td>{{ buchung.endzeit|date('H:i') }}</td>
+                                            <td>{{ buchung.stock }}</td>
+                                            <td>{{ buchung.raum }}</td>
+                                            <td>{{ buchung.tisch }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">Sie haben noch keine Buchungen.</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Neue Buchung starten -->
+                        <div class="text-center mt-4">
+                            <a href="{{ path('buchungen') }}" class="btn btn-primary btn-lg">Neue Buchung starten</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
