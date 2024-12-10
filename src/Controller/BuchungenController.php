@@ -39,7 +39,7 @@ class BuchungenController extends AbstractController
             $this->addFlash('error', 'Dieser Tisch ist für den angegebenen Zeitraum bereits gebucht.');
             return $this->redirectToRoute('buchungen');
         }
-
+die('here');
 
         $buchung = new Buchung();
         $buchung->setDatum(new \DateTime($datum));
