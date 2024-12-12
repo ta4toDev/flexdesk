@@ -30,7 +30,7 @@ class Booking
     private ?int $room = null;
 
     #[ORM\Column]
-    private ?int $table = null;
+    private ?int $desk = null;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     private ?User $user = null;
@@ -100,14 +100,14 @@ class Booking
         return $this;
     }
 
-    public function getTable(): ?int
+    public function getDesk(): ?int
     {
-        return $this->table;
+        return $this->desk;
     }
 
-    public function setTable(int $table): static
+    public function setDesk(int $desk): static
     {
-        $this->table = $table;
+        $this->desk = $desk;
 
         return $this;
     }

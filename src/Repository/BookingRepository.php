@@ -23,7 +23,7 @@ class BookingRepository extends ServiceEntityRepository
      * @param \DateTimeInterface $endTime
      * @param int $floor
      * @param int $room
-     * @param int $table
+     * @param int $desk
      * @return Booking|null
      */
     public function findExistingBooking(
@@ -32,20 +32,20 @@ class BookingRepository extends ServiceEntityRepository
         \DateTimeInterface $endTime,
         int $floor,
         int $room,
-        int $table
+        int $desk
     ): ?Booking {
         return $this->createQueryBuilder('b')
             ->where('b.date = :date')
             ->andWhere('b.floor = :floor')
             ->andWhere('b.room = :room')
-            ->andWhere('b.table = :table')
+            ->andWhere('b.desk = :desk')
             ->andWhere('(b.startTime BETWEEN :startTime AND :endTime OR b.endTime BETWEEN :startTime AND :endTime)')
             ->setParameter('date', $date)
             ->setParameter('startTime', $startTime)
             ->setParameter('endTime', $endTime)
             ->setParameter('floor', $floor)
             ->setParameter('room', $room)
-            ->setParameter('table', $table)
+            ->setParameter('desk', $desk)
             ->getQuery()
             ->getOneOrNullResult();
     }

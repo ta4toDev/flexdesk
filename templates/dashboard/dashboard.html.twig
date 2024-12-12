@@ -50,12 +50,12 @@
                                 {% if bookings is not empty %}
                                     {% for booking in bookings %}
                                         <tr>
-                                            <td>{{ booking.datum|date('d-m-Y') }}</td>
+                                            <td>{{ booking.date|date('d-m-Y') }}</td>
                                             <td>{{ booking.startTime|date('H:i') }}</td>
                                             <td>{{ booking.endTime|date('H:i') }}</td>
                                             <td>{{ booking.floor }}</td>
                                             <td>{{ booking.room }}</td>
-                                            <td>{{ booking.table }}</td>
+                                            <td>{{ booking.desk }}</td>
                                         </tr>
                                     {% endfor %}
                                 {% else %}
