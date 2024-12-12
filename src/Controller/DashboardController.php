@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\BuchungRepository;
+use App\Repository\BookingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,24 +11,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractController
 {
     #[Route('/dashboard', name: 'dashboard')]
-    public function index(BuchungRepository $buchungRepository): Response
+    public function index(BookingRepository $bookingRepository): Response
     {
-        $buchungen = $buchungRepository->findBy(['benutzer' => $this->getUser()]);
+        $bookings = $bookingRepository->findBy(['user' => $this->getUser()]);
 
         $firstDayOfThisMonth = new \DateTime('first day of this month');
-        $lastDayOfThisMonth = new \DateTime('last day of this month'); //Buchungen für den aktuellen Monat
-        $buchungenDieserMonat = $buchungRepository->createQueryBuilder('b')
-            ->where('b.benutzer = :benutzer')
-            ->andWhere('b.datum BETWEEN :firstDayOfThisMonth AND :lastDayOfThisMonth')
-            ->setParameter('benutzer', $this->getUser())
+        $lastDayOfThisMonth = new \DateTime('last day of this month'); 
+        $bookingsThisMonth = $bookingRepository->createQueryBuilder('b')
+            ->where('b.user = :user')
+            ->andWhere('b.date BETWEEN :firstDayOfThisMonth AND :lastDayOfThisMonth')
+            ->setParameter('user', $this->getUser())
             ->setParameter('firstDayOfThisMonth', $firstDayOfThisMonth)
             ->setParameter('lastDayOfThisMonth', $lastDayOfThisMonth)
             ->getQuery()
             ->getResult();
 
         return $this->render('dashboard/dashboard.html.twig', [
-            'buchungen' => $buchungen,
-            'anzahlBuchungenDieserMonat' => count($buchungenDieserMonat)
+            'bookings' => $bookings,
+            'CountOfBookingsThisMonth' => count($bookingsThisMonth)
         ]);
     }
 

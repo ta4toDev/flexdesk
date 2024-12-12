@@ -34,19 +34,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $vorname;
+    private ?string $firstName;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $name;
+    private ?string $lastName;
 
     #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $telefonnummer;
+    private ?string $phoneNumber;
 
     #[ORM\Column(type: 'string', nullable: true)]
     private ?string $position;
 
     #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $foto;
+    private ?string $photo;
 
     #[ORM\Column]
     private bool $isVerified = false;
@@ -116,38 +116,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getVorname(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->vorname;
+        return $this->firstName;
     }
 
-    public function setVorname(string $vorname): static
+    public function setFirstName(string $firstName): static
     {
-        $this->vorname = $vorname;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getName(): ?string
+    public function getLastName(): ?string
     {
-        return $this->name;
+        return $this->lastName;
     }
 
-    public function setName(string $name): static
+    public function setLastName(string $lastName): static
     {
-        $this->name = $name;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
-    public function getTelefonnummer(): ?string
+    public function getPhoneNumber(): ?string
     {
-        return $this->telefonnummer;
+        return $this->phoneNumber;
     }
 
-    public function setTelefonnummer(string $telefonnummer): static
+    public function setPhoneNumber(string $phoneNumber): static
     {
-        $this->telefonnummer = $telefonnummer;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }
@@ -164,14 +164,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getFoto(): ?string
+    public function getPhoto(): ?string
     {
-        return $this->foto ?? 'default_photo.png';
+        return $this->photo ?? 'default_photo.png';
     }
 
-    public function setFoto(string $foto): static
+    public function setPhoto(string $photo): static
     {
-        $this->foto = $foto;
+        $this->photo = $photo;
 
         return $this;
     }

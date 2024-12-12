@@ -42,7 +42,7 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/dashboard, roles: ROLE_USER }
-         - { path: ^/buchungen, roles: ROLE_USER }
+         - { path: ^/bookings, roles: ROLE_USER }
 
 when@test:
     security:

@@ -2,50 +2,50 @@
 
 namespace App\Repository;
 
-use App\Entity\Buchung;
+use App\Entity\Booking;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Buchung>
+ * @extends ServiceEntityRepository<Booking>
  */
-class BuchungRepository extends ServiceEntityRepository
+class BookingRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Buchung::class);
+        parent::__construct($registry, Booking::class);
     }
     /**
      * Prüft, ob eine Buchung für den angegebenen Tisch, Datum und Zeitraum existiert.
      *
-     * @param \DateTimeInterface $datum
-     * @param \DateTimeInterface $startzeit
-     * @param \DateTimeInterface $endzeit
-     * @param int $stock
-     * @param int $raum
-     * @param int $tisch
-     * @return Buchung|null
+     * @param \DateTimeInterface $date
+     * @param \DateTimeInterface $startTime
+     * @param \DateTimeInterface $endTime
+     * @param int $floor
+     * @param int $room
+     * @param int $table
+     * @return Booking|null
      */
     public function findExistingBooking(
-        \DateTimeInterface $datum,
-        \DateTimeInterface $startzeit,
-        \DateTimeInterface $endzeit,
-        int $stock,
-        int $raum,
-        int $tisch
-    ): ?Buchung {
+        \DateTimeInterface $date,
+        \DateTimeInterface $startTime,
+        \DateTimeInterface $endTime,
+        int $floor,
+        int $room,
+        int $table
+    ): ?Booking {
         return $this->createQueryBuilder('b')
-            ->where('b.datum = :datum')
-            ->andWhere('b.stock = :stock')
-            ->andWhere('b.raum = :raum')
-            ->andWhere('b.tisch = :tisch')
-            ->andWhere('(:startzeit < b.endzeit AND :endzeit > b.startzeit)')
-            ->setParameter('datum', $datum)
-            ->setParameter('startzeit', $startzeit)
-            ->setParameter('endzeit', $endzeit)
-            ->setParameter('stock', $stock)
-            ->setParameter('raum', $raum)
-            ->setParameter('tisch', $tisch)
+            ->where('b.date = :date')
+            ->andWhere('b.floor = :floor')
+            ->andWhere('b.room = :room')
+            ->andWhere('b.table = :table')
+            ->andWhere('(b.startTime BETWEEN :startTime AND :endTime OR b.endTime BETWEEN :startTime AND :endTime)')
+            ->setParameter('date', $date)
+            ->setParameter('startTime', $startTime)
+            ->setParameter('endTime', $endTime)
+            ->setParameter('floor', $floor)
+            ->setParameter('room', $room)
+            ->setParameter('table', $table)
             ->getQuery()
             ->getOneOrNullResult();
     }

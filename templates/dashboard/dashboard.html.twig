@@ -23,11 +23,11 @@
                         <div class="text-center mb-4">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="me-3">
-                                    <h1>Willkommen, {{ app.user.vorname }}!</h1>
+                                    <h1>Willkommen, {{ app.user.firstName }}!</h1>
                                     <p>Verwalten Sie Ihre Büro- und Homeoffice-Tage und reservieren Sie Ihren Arbeitsplatz.</p>
                                 </div>
                                 <div>
-                                    <img src="{{ app.user.foto ? asset('uploads/photos/' ~ app.user.foto) : asset('uploads/photos/default-profile.png') }}"
+                                    <img src="{{ app.user.photo ? asset('uploads/photos/' ~ app.user.photo) : asset('uploads/photos/default-profile.png') }}"
                                          alt="Profilbild"
                                          class="rounded-circle border border-primary"
                                          style="width: 100px; height: 100px; object-fit: cover;">
@@ -37,7 +37,7 @@
 
                         <!-- Anzahl der Buchungen -->
                         <div class="alert alert-info text-center">
-                            <h4>Buchungen in diesem Monat: {{ anzahlBuchungenDieserMonat }}</h4>
+                            <h4>Buchungen in diesem Monat: {{ CountOfBookingsThisMonth }}</h4>
                         </div>
 
                         <!-- Buchungen anzeigen -->
@@ -54,15 +54,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% if buchungen is not empty %}
-                                    {% for buchung in buchungen %}
+                                {% if bookings is not empty %}
+                                    {% for booking in bookings %}
                                         <tr>
-                                            <td>{{ buchung.datum|date('d-m-Y') }}</td>
-                                            <td>{{ buchung.startzeit|date('H:i') }}</td>
-                                            <td>{{ buchung.endzeit|date('H:i') }}</td>
-                                            <td>{{ buchung.stock }}</td>
-                                            <td>{{ buchung.raum }}</td>
-                                            <td>{{ buchung.tisch }}</td>
+                                            <td>{{ booking.datum|date('d-m-Y') }}</td>
+                                            <td>{{ booking.startTime|date('H:i') }}</td>
+                                            <td>{{ booking.endTime|date('H:i') }}</td>
+                                            <td>{{ booking.floor }}</td>
+                                            <td>{{ booking.room }}</td>
+                                            <td>{{ booking.table }}</td>
                                         </tr>
                                     {% endfor %}
                                 {% else %}
@@ -76,7 +76,7 @@
 
                         <!-- Neue Buchung starten -->
                         <div class="text-center mt-4">
-                            <a href="{{ path('buchungen') }}" class="btn btn-primary btn-lg">Neue Buchung starten</a>
+                            <a href="{{ path('bookings') }}" class="btn btn-primary btn-lg">Neue Buchung starten</a>
                         </div>
                     </div>
                 </div>

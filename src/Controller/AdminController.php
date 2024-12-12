@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Buchung;
-use App\Repository\BuchungRepository;
+use App\Entity\Booking;
+use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin/benutzer_erstellen', name: 'benutzer_erstellen')]
+    #[Route('/admin/create-user', name: 'create_user')]
     public function createUser(Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
@@ -25,8 +25,8 @@ class AdminController extends AbstractController
         }
         $user = new User();
         $form = $this->createFormBuilder($user)
-            ->add('vorname', TextType::class)
-            ->add('name', TextType::class)
+            ->add('firstName', TextType::class)
+            ->add('lastName', TextType::class)
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class, [
                 'mapped' => false,
@@ -45,8 +45,8 @@ class AdminController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Neuer Benutzer erfolgreich erstellt!');
-            return $this->redirectToRoute('benutzer_liste');
+            $this->addFlash('success', 'New user successfully created!');
+            return $this->redirectToRoute('user_liste');
         }
 
         return $this->render('admin/create_user.html.twig', [
@@ -54,25 +54,25 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/benutzer-liste', name: 'benutzer_liste')]
+    #[Route('/admin/user-liste', name: 'user_liste')]
     public function listUsers(EntityManagerInterface $em): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
             throw $this->createAccessDeniedException();
         }
 
-        $benutzer = $em->getRepository(User::class)->createQueryBuilder('u')
+        $user = $em->getRepository(User::class)->createQueryBuilder('u')
             ->where('u.roles NOT LIKE :role')
             ->setParameter('role', '%"ROLE_ADMIN"%')
             ->getQuery()
             ->getResult();
 
         return $this->render('admin/user_liste.html.twig', [
-            'benutzer' => $benutzer,
+            'user' => $user,
         ]);
     }
 
-    #[Route('/admin/benutzer-bearbeiten/{id}', name: 'benutzer_bearbeiten')]
+    #[Route('/admin/edit-user/{id}', name: 'edit_user')]
     public function editUser(User $user, Request $request, EntityManagerInterface $em, UserPasswordHasherInterface $passwordHasher): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
@@ -80,8 +80,8 @@ class AdminController extends AbstractController
         }
 
         $form = $this->createFormBuilder($user)
-            ->add('vorname', TextType::class)
-            ->add('name', TextType::class)
+            ->add('firstName', TextType::class)
+            ->add('lastName', TextType::class)
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class, [
                 'mapped' => false,
@@ -101,8 +101,8 @@ class AdminController extends AbstractController
 
             $em->flush();
 
-            $this->addFlash('success', 'Benutzer erfolgreich bearbeitet!');
-            return $this->redirectToRoute('benutzer_liste');
+            $this->addFlash('success', 'User successfully updated!');
+            return $this->redirectToRoute('user_liste');
         }
 
         return $this->render('admin/edit_user.html.twig', [
@@ -110,7 +110,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/benutzer-loeschen/{id}', name: 'benutzer_loeschen')]
+    #[Route('/admin/delete-user/{id}', name: 'delete_user')]
     public function deleteUser(User $user, EntityManagerInterface $em): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
@@ -120,10 +120,10 @@ class AdminController extends AbstractController
         $em->remove($user);
         $em->flush();
 
-        $this->addFlash('success', 'Benutzer erfolgreich gelöscht!');
-        return $this->redirectToRoute('benutzer_liste');
+        $this->addFlash('success', 'User successfully deleted!');
+        return $this->redirectToRoute('user_liste');
     }
-    #[Route('/admin/buchungsuebersicht', name: 'buchungsuebersicht')]
+    #[Route('/admin/bookingsOverview', name: 'bookings_overview')]
     public function bookingsOverview(EntityManagerInterface $em): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) {
@@ -131,10 +131,10 @@ class AdminController extends AbstractController
         }
 
         // Alle Buchungen abrufen
-        $buchungen = $em->getRepository(Buchung::class)->findAll();
+        $bookings = $em->getRepository(Booking::class)->findAll();
 
         return $this->render('admin/bookings_overview.html.twig', [
-            'buchungen' => $buchungen,
+            'bookings' => $bookings,
         ]);
     }
 

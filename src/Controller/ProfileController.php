@@ -15,8 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
-
-
 class ProfileController extends AbstractController
 {
     #[Route('/profile', name: 'profile')]
@@ -26,27 +24,27 @@ class ProfileController extends AbstractController
 
         // Formular
         $form = $this->createFormBuilder($user)
-            ->add('vorname', TextType::class, [
-                'label' => 'Vorname',
+            ->add('firstName', TextType::class, [
+                'label' => 'firstName',
                 'disabled' => true
             ])
-            ->add('name', TextType::class , [
-                'label' => 'Nachname',
+            ->add('lastName', TextType::class , [
+                'label' => 'lastName',
                 'disabled' => true
             ])
             ->add('email', EmailType::class, [
                 'label' => 'E-Mail-Adresse',
                 'disabled' => true
             ])
-            ->add('telefonnummer', TextType::class, [
-                'label' => 'Telefonnummer'
+            ->add('phoneNumber', TextType::class, [
+                'label' => 'phone'
             ])
             ->add('position', TextType::class , [
                 'label' => 'Position',
                 'disabled' => false,
             ])
-            ->add('foto', FileType::class, [
-                'label' => 'Profilbild hochladen',
+            ->add('photo', FileType::class, [
+                'label' => 'Upload photo',
                 'mapped' => false,
                 'required' => false,
             ])
@@ -54,11 +52,10 @@ class ProfileController extends AbstractController
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'required' => false,
-                'first_options' => ['label' => 'Passwort'],
-                'second_options' => ['label' => 'Passwort wiederholen'],
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Confirm Password'],
             ])
             ->getForm();
-
 
         $form->handleRequest($request);
 
@@ -71,7 +68,7 @@ class ProfileController extends AbstractController
                 );
             }
             // Foto-Upload verarbeiten
-            $file = $form->get('foto')->getData();
+            $file = $form->get('photo')->getData();
             if ($file) {
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
@@ -82,12 +79,12 @@ class ProfileController extends AbstractController
                 );
 
                 // Speichere den Dateinamen in der Datenbank
-                $user->setFoto($fileName);
+                $user->setPhoto($fileName);
             }
             $em->persist($user);
             $em->flush();
 
-            $this->addFlash('success', 'Profil erfolgreich aktualisiert!');
+            $this->addFlash('success', 'Profile successfully updated!');
 
             return $this->redirectToRoute('profile');
         }

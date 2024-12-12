@@ -21,17 +21,17 @@
             </tr>
             </thead>
             <tbody>
-            {% for buchung in buchungen %}
+            {% for booking in bookings %}
                 <tr>
-                    <td>{{ buchung.id }}</td>
-                    <td>{{ buchung.benutzer.vorname }} {{ buchung.benutzer.name }}</td>
-                    <td>{{ buchung.benutzer.email }}</td>
-                    <td>{{ buchung.datum|date('Y-m-d') }}</td>
-                    <td>{{ buchung.startzeit|date('H:i') }}</td>
-                    <td>{{ buchung.endzeit|date('H:i') }}</td>
-                    <td>{{ buchung.stock }}</td>
-                    <td>{{ buchung.raum }}</td>
-                    <td>{{ buchung.tisch }}</td>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.user.lastName }} {{ booking.user.firstName }}</td>
+                    <td>{{ booking.user.email }}</td>
+                    <td>{{ booking.date|date('Y-m-d') }}</td>
+                    <td>{{ booking.startTime|date('H:i') }}</td>
+                    <td>{{ booking.endTime|date('H:i') }}</td>
+                    <td>{{ booking.floor }}</td>
+                    <td>{{ booking.room }}</td>
+                    <td>{{ booking.table }}</td>
                 </tr>
             {% else %}
                 <tr>

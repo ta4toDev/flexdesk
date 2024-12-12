@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\BuchungRepository;
+use App\Repository\BookingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;

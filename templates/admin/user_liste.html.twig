@@ -16,15 +16,15 @@
             </tr>
             </thead>
             <tbody>
-            {% for user in benutzer %}
+            {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
-                    <td>{{ user.vorname }}</td>
-                    <td>{{ user.name }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
                     <td>{{ user.email }}</td>
                     <td>
-                        <a href="{{ path('benutzer_bearbeiten', { id: user.id }) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
-                        <a href="{{ path('benutzer_loeschen', { id: user.id }) }}" class="btn btn-danger btn-sm"
+                        <a href="{{ path('edit_user', { id: user.id }) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
+                        <a href="{{ path('delete_user', { id: user.id }) }}" class="btn btn-danger btn-sm"
                            onclick="return confirm('Möchten Sie diesen Benutzer wirklich löschen?');">Löschen</a>
                     </td>
                 </tr>
@@ -35,6 +35,6 @@
             {% endfor %}
             </tbody>
         </table>
-        <a href="{{ path('benutzer_erstellen') }}" class="btn btn-success mt-3">Neuen Benutzer erstellen</a>
+        <a href="{{ path('create_user') }}" class="btn btn-success mt-3">Neuen Benutzer erstellen</a>
     </div>
 {% endblock %}

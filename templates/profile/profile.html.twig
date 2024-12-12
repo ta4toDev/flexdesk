@@ -21,27 +21,27 @@
                     <div class="card-body">
                         <div class="text-center mb-4">
                             <!-- Profilbild anzeigen -->
-                            {% if user.foto %}
-                                <img src="{{ asset('uploads/photos/' ~ user.foto) }}" alt="Profilbild" class="rounded-circle border border-primary" style="width: 150px; height: 150px; object-fit: cover;">
+                            {% if user.photo %}
+                                <img src="{{ asset('uploads/photos/' ~ user.photo) }}" alt="Profilbild" class="rounded-circle border border-primary" style="width: 150px; height: 150px; object-fit: cover;">
                             {% else %}
                                 <img src="{{ asset('uploads/photos/default-profile.png') }}" alt="Profilbild" class="rounded-circle border border-secondary" style="width: 150px; height: 150px; object-fit: cover;">
                             {% endif %}
                         </div>
 
-                        <!-- Formular -->
+                        <!-- Form -->
                         {{ form_start(form, { 'attr': { 'enctype': 'multipart/form-data', 'class': 'needs-validation', 'novalidate': 'novalidate' } }) }}
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.vorname, 'Vorname', { 'label_attr': { 'class': 'form-label' } }) }}
-                                {{ form_widget(form.vorname, { 'attr': { 'class': 'form-control' } }) }}
-                                {{ form_errors(form.vorname) }}
+                                {{ form_label(form.firstName, 'First Name', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_widget(form.firstName, { 'attr': { 'class': 'form-control' } }) }}
+                                {{ form_errors(form.firstName) }}
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.name, 'Nachname', { 'label_attr': { 'class': 'form-label' } }) }}
-                                {{ form_widget(form.name, { 'attr': { 'class': 'form-control' } }) }}
-                                {{ form_errors(form.name) }}
+                                {{ form_label(form.lastName, 'Last Name', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_widget(form.lastName, { 'attr': { 'class': 'form-control' } }) }}
+                                {{ form_errors(form.lastName) }}
                             </div>
                         </div>
 
@@ -53,9 +53,9 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.telefonnummer, 'Telefonnummer', { 'label_attr': { 'class': 'form-label' } }) }}
-                                {{ form_widget(form.telefonnummer, { 'attr': { 'class': 'form-control' } }) }}
-                                {{ form_errors(form.telefonnummer) }}
+                                {{ form_label(form.phoneNumber, 'Phone Number', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_widget(form.phoneNumber, { 'attr': { 'class': 'form-control' } }) }}
+                                {{ form_errors(form.phoneNumber) }}
                             </div>
                         </div>
 
@@ -67,21 +67,21 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.foto, 'Profilbild hochladen', { 'label_attr': { 'class': 'form-label' } }) }}
-                                {{ form_widget(form.foto, { 'attr': { 'class': 'form-control' } }) }}
-                                {{ form_errors(form.foto) }}
+                                {{ form_label(form.photo, 'Upload Profile Picture', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_widget(form.photo, { 'attr': { 'class': 'form-control' } }) }}
+                                {{ form_errors(form.photo) }}
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.password.first, 'Neues Passwort', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_label(form.password.first, 'New Password', { 'label_attr': { 'class': 'form-label' } }) }}
                                 {{ form_widget(form.password.first, { 'attr': { 'class': 'form-control' } }) }}
                                 {{ form_errors(form.password.first) }}
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                {{ form_label(form.password.second, 'Passwort bestätigen', { 'label_attr': { 'class': 'form-label' } }) }}
+                                {{ form_label(form.password.second, 'Confirm Password', { 'label_attr': { 'class': 'form-label' } }) }}
                                 {{ form_widget(form.password.second, { 'attr': { 'class': 'form-control' } }) }}
                                 {{ form_errors(form.password.second) }}
                             </div>
