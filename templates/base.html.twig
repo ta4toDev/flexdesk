@@ -18,19 +18,18 @@
             }
             .navbar {
                 background-color: rgba(255, 255, 255, 0.9);
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2px 4px rgb(91, 62, 44);
                 z-index: 10;
             }
             .navbar-brand {
                 font-weight: bold;
             }
-
             .container-content {
                 background: rgba(255, 255, 255, 0.95);
                 padding: 20px;
                 border-radius: 5px;
                 margin-top: 20px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 4px 6px rgb(134, 94, 73);
             }
             footer {
                 text-align: center;
@@ -40,7 +39,7 @@
                 bottom: 0;
                 width: 100%;
                 left: 0;
-                box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 -2px 4px rgb(134, 94, 73);
             }
         </style>
     {% endblock %}
@@ -57,30 +56,38 @@
                 {% if app.user %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('user_liste') }}">User Management</a>
+                            <a class="nav-link" href="{{ path('user_liste') }}">{{ 'user_management'|trans }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('bookings_overview') }}">Booking Overview</a>
+                            <a class="nav-link" href="{{ path('bookings_overview') }}">{{ 'booking_overview'|trans }}</a>
                         </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ path('dashboard') }}">{{ 'dashboard'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('bookings') }}">Bookings</a>
+                        <a class="nav-link" href="{{ path('bookings') }}">{{ 'bookings'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('profile') }}">Profile</a>
+                        <a class="nav-link" href="{{ path('profile') }}">{{ 'profile'|trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="{{ path('_logout_main') }}">Logout</a>
+                        <a class="nav-link text-danger" href="{{ path('_logout_main') }}">{{ 'logout'|trans }}</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                        <a class="nav-link" href="{{ path('app_login') }}">{{ 'login'|trans }}</a>
                     </li>
                 {% endif %}
             </ul>
+            <div class="ms-3">
+                <a href="{{ path('switch_locale', {'locale': 'en'}) }}" class="btn btn-outline-primary btn-sm {{ app.request.locale == 'en' ? 'active' : '' }}">
+                    English
+                </a>
+                <a href="{{ path('switch_locale', {'locale': 'de'}) }}" class="btn btn-outline-secondary btn-sm {{ app.request.locale == 'de' ? 'active' : '' }}">
+                    Deutsch
+                </a>
+            </div>
         </div>
     </div>
 </nav>
