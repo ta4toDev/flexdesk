@@ -16,7 +16,7 @@ class BookingRepository extends ServiceEntityRepository
         parent::__construct($registry, Booking::class);
     }
     /**
-     * Prüft, ob eine Buchung für den angegebenen Tisch, Datum und Zeitraum existiert.
+     * Find an existing booking for the given date, time, floor, room, and table.
      *
      * @param \DateTimeInterface $date
      * @param \DateTimeInterface $startTime

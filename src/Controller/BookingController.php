@@ -26,7 +26,7 @@ class BookingController extends AbstractController
         $endTime = $request->request->get('endTime');
         $floor = $request->request->get('floor');
         $raum = $request->request->get('raum');
-        $tisch = $request->request->get('tisch');
+        $table = $request->request->get('table');
 
         if ($bookingRepository->findExistingBooking(
             new \DateTime($date),
@@ -34,9 +34,9 @@ class BookingController extends AbstractController
             new \DateTime($endTime),
             (int) $floor,
             (int) $raum,
-            (int) $tisch
+            (int) $table
         )) {
-            $this->addFlash('error', 'Dieser Tisch ist für den angegebenen Zeitraum bereits gebucht.');
+            $this->addFlash('error', 'Booking already exists for this date, time, floor, room, and table!');
             return $this->redirectToRoute('bookings');
         }
 
@@ -46,7 +46,7 @@ class BookingController extends AbstractController
         $booking->setEndTime(new \DateTime($endTime));
         $booking->setFloor((int) $floor);
         $booking->setRoom((int) $raum);
-        $booking->setTable((int) $tisch);
+        $booking->setTable((int) $table);
         $booking->setUser($this->getUser());
 
         $em->persist($booking);

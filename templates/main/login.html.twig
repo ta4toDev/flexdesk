@@ -21,10 +21,6 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
         .btn-block {
             margin-top: 1.5rem;
         }
@@ -34,23 +30,21 @@
 {% block body %}
     <div class="login-container">
         <h2 class="text-center">Login</h2>
-
-        <!-- Prüft, ob eine Fehlermeldung vorhanden ist -->
         {% if error %}
             <div class="alert alert-danger">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
         {% endif %}
 
-        <!-- Das Login-Formular -->
+        <!-- login form -->
         <form action="{{ path('app_login') }}" method="post">
             <div class="form-group">
-                <label for="username">E-Mail oder Benutzername</label>
+                <label for="username">E-Mail oder Username</label>
                 <input type="text" id="username" name="_username" class="form-control" required autofocus>
             </div>
 
             <div class="form-group">
-                <label for="password">Passwort</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="_password" class="form-control" required>
             </div>
 
@@ -58,7 +52,7 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Anmelden</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </form>
     </div>
 

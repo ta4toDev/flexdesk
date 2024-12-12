@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Booking;
-use App\Repository\BookingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -129,8 +128,7 @@ class AdminController extends AbstractController
         if (!$this->isGranted('ROLE_ADMIN')) {
             throw $this->createAccessDeniedException();
         }
-
-        // Alle Buchungen abrufen
+      // Get all bookings from the database
         $bookings = $em->getRepository(Booking::class)->findAll();
 
         return $this->render('admin/bookings_overview.html.twig', [

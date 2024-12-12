@@ -60,25 +60,25 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Passwort nur ändern, wenn es im Formular ausgefüllt wurde
+            // Password-Hashing
             $plainPassword = $form->get('password')->getData();
             if ($plainPassword) {
                 $user->setPassword(
                     $passwordHasher->hashPassword($user, $plainPassword)
                 );
             }
-            // Foto-Upload verarbeiten
+            // Photo-Upload
             $file = $form->get('photo')->getData();
             if ($file) {
                 $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-                // Verschieben der hochgeladenen Datei in das Zielverzeichnis
+                // move the file to the directory where photos are stored
                 $file->move(
                     $this->getParameter('photos_directory'),
                     $fileName
                 );
 
-                // Speichere den Dateinamen in der Datenbank
+                // update the 'photo' property to store the photo file name
                 $user->setPhoto($fileName);
             }
             $em->persist($user);

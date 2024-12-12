@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Benutzer bearbeiten{% endblock %}
+{% block title %}Edit user{% endblock %}
 
 {% block body %}
     <div class="container mt-4">
-        <h1>Benutzer bearbeiten</h1>
+        <h1>Edit user</h1>
         {{ form_start(form) }}
         <div class="form-group">
             {{ form_label(form.firstName) }}
@@ -21,9 +21,9 @@
         <div class="form-group">
             {{ form_label(form.password) }}
             {{ form_widget(form.password, { 'attr': { 'class': 'form-control' } }) }}
-            <small class="form-text text-muted">Lassen Sie das Feld leer, um das Passwort nicht zu ändern.</small>
+            <small class="form-text text-muted">Leave the field empty to keep the password unchanged.</small>
         </div>
-        <button class="btn btn-primary mt-3">Speichern</button>
+        <button class="btn btn-primary mt-3">Save</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

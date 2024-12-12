@@ -7,28 +7,23 @@
     <style>
         .centered-container {
             display: flex;
-            justify-content: space-around; /* Elemente horizontal verteilen */
-            align-items: center; /* Elemente vertikal ausrichten */
-            height: 70vh; /* Setzt die Höhe des Containers */
+            justify-content: space-around;
+            align-items: center;
             padding: 20px;
         }
-
         .text-container {
             max-width: 50%;
-            text-align: left; /* Text linksbündig */
+            text-align: left;
         }
-
         .image-container {
-            max-width: 45%; /* Bild soll nicht den ganzen Platz einnehmen */
+            max-width: 45%;
         }
-
         .image-container img {
             max-width: 100%;
-            height: auto; /* Bildgrößenverhältnis beibehalten */
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -39,7 +34,6 @@
                 transform: translateY(0);
             }
         }
-
         .fade-in {
             opacity: 0;
             animation: fadeIn 2s ease-in-out forwards;
@@ -64,12 +58,12 @@
 
     <div class="centered-container">
         <div>
-            <h1 class="fade-in">Willkommen zu FlexDesk!</h1>
-            <p class="fade-in-delayed">Verwalten Sie Ihre Büro- und Homeoffice-Tage und reservieren Sie Ihren Arbeitsplatz.</p>
+            <h1 class="fade-in">Welcome to FlexDesk!</h1>
+            <p class="fade-in-delayed">Manage your office and home office days and reserve your workspace.</p>
             <a href="{{ path('app_login') }}" class="btn btn-primary btn-lg">Login</a>
         </div>
         <div class="image-container">
-            <img src="/images/flexdesk-image.jpg" alt="FlexDesk Vorschau">
+            <img src="/images/flexdesk-image.jpg" alt="FlexDesk Preview">
     </div>
 
 {% endblock %}

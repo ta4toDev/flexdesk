@@ -4,14 +4,12 @@
 
 {% block body %}
     <div class="container mt-5">
-        <!-- Flash-Nachrichten -->
         {% for message in app.flashes('success') %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
-
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="card shadow-lg">
@@ -19,38 +17,33 @@
                         <h2>Dashboard</h2>
                     </div>
                     <div class="card-body">
-                        <!-- Willkommen-Bereich -->
                         <div class="text-center mb-4">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="me-3">
-                                    <h1>Willkommen, {{ app.user.firstName }}!</h1>
-                                    <p>Verwalten Sie Ihre Büro- und Homeoffice-Tage und reservieren Sie Ihren Arbeitsplatz.</p>
+                                    <h1>Welcome, {{ app.user.firstName }}!</h1>
+                                    <p>Manage your office and home office days and reserve your workspace.</p>
                                 </div>
                                 <div>
                                     <img src="{{ app.user.photo ? asset('uploads/photos/' ~ app.user.photo) : asset('uploads/photos/default-profile.png') }}"
-                                         alt="Profilbild"
+                                         alt="Profile Picture"
                                          class="rounded-circle border border-primary"
                                          style="width: 100px; height: 100px; object-fit: cover;">
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Anzahl der Buchungen -->
                         <div class="alert alert-info text-center">
-                            <h4>Buchungen in diesem Monat: {{ CountOfBookingsThisMonth }}</h4>
+                            <h4>Count of bookings this month: {{ CountOfBookingsThisMonth }}</h4>
                         </div>
-
-                        <!-- Buchungen anzeigen -->
                         <div class="table-responsive mt-4">
                             <table class="table table-bordered table-hover">
                                 <thead class="table-light">
                                 <tr>
-                                    <th>Datum</th>
-                                    <th>Startzeit</th>
-                                    <th>Endzeit</th>
-                                    <th>Stockwerk</th>
-                                    <th>Raum</th>
-                                    <th>Tisch</th>
+                                    <th>Date</th>
+                                    <th>StartTime</th>
+                                    <th>EndTime</th>
+                                    <th>Floor</th>
+                                    <th>Room</th>
+                                    <th>Table</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,16 +60,14 @@
                                     {% endfor %}
                                 {% else %}
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted">Sie haben noch keine Buchungen.</td>
+                                        <td colspan="6" class="text-center text-muted">You have no bookings yet.</td>
                                     </tr>
                                 {% endif %}
                                 </tbody>
                             </table>
                         </div>
-
-                        <!-- Neue Buchung starten -->
                         <div class="text-center mt-4">
-                            <a href="{{ path('bookings') }}" class="btn btn-primary btn-lg">Neue Buchung starten</a>
+                            <a href="{{ path('bookings') }}" class="btn btn-primary btn-lg">Start a new booking</a>
                         </div>
                     </div>
                 </div>

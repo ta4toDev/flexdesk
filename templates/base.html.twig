@@ -57,20 +57,20 @@
                 {% if app.user %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('user_liste') }}">Benutzerverwaltung</a>
+                            <a class="nav-link" href="{{ path('user_liste') }}">User Management</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('bookings_overview') }}">Buchungsübersicht</a>
+                            <a class="nav-link" href="{{ path('bookings_overview') }}">Booking Overview</a>
                         </li>
                     {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('bookings') }}">Buchungen</a>
+                        <a class="nav-link" href="{{ path('bookings') }}">Bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('profile') }}">Profil</a>
+                        <a class="nav-link" href="{{ path('profile') }}">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" href="{{ path('_logout_main') }}">Logout</a>

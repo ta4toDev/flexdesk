@@ -1,40 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Benutzerliste{% endblock %}
+{% block title %}User List{% endblock %}
 
 {% block body %}
     <div class="container mt-4">
-        <h1>Benutzerliste</h1>
+        <h1>User List</h1>
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Vorname</th>
-                <th>Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>E-Mail</th>
                 <th>Aktionen</th>
             </tr>
             </thead>
             <tbody>
-            {% for user in users %}
+            {% for user in user  %}
                 <tr>
                     <td>{{ user.id }}</td>
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.email }}</td>
                     <td>
-                        <a href="{{ path('edit_user', { id: user.id }) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
+                        <a href="{{ path('edit_user', { id: user.id }) }}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="{{ path('delete_user', { id: user.id }) }}" class="btn btn-danger btn-sm"
-                           onclick="return confirm('Möchten Sie diesen Benutzer wirklich löschen?');">Löschen</a>
+                           onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5" class="text-center">Keine Benutzer gefunden.</td>
+                    <td colspan="5" class="text-center">No users found.</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-        <a href="{{ path('create_user') }}" class="btn btn-success mt-3">Neuen Benutzer erstellen</a>
+        <a href="{{ path('create_user') }}" class="btn btn-success mt-3">Create new user</a>
     </div>
 {% endblock %}

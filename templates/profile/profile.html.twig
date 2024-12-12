@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil bearbeiten{% endblock %}
+{% block title %}Edit Profile{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
-        <!-- Flash-Nachrichten -->
         {% for message in app.flashes('success') %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ message }}
@@ -16,15 +15,14 @@
             <div class="col-lg-8">
                 <div class="card shadow-lg">
                     <div class="alert alert-info text-center">
-                        <h2>Profil bearbeiten</h2>
+                        <h2>Edit Profile</h2>
                     </div>
                     <div class="card-body">
                         <div class="text-center mb-4">
-                            <!-- Profilbild anzeigen -->
                             {% if user.photo %}
-                                <img src="{{ asset('uploads/photos/' ~ user.photo) }}" alt="Profilbild" class="rounded-circle border border-primary" style="width: 150px; height: 150px; object-fit: cover;">
+                                <img src="{{ asset('uploads/photos/' ~ user.photo) }}" alt="Profile Picture" class="rounded-circle border border-primary" style="width: 150px; height: 150px; object-fit: cover;">
                             {% else %}
-                                <img src="{{ asset('uploads/photos/default-profile.png') }}" alt="Profilbild" class="rounded-circle border border-secondary" style="width: 150px; height: 150px; object-fit: cover;">
+                                <img src="{{ asset('uploads/photos/default-profile.png') }}" alt="Profile Picture" class="rounded-circle border border-secondary" style="width: 150px; height: 150px; object-fit: cover;">
                             {% endif %}
                         </div>
 
@@ -88,7 +86,7 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Speichern</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
 
                         {{ form_end(form) }}

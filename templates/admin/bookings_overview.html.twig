@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Buchungsübersicht{% endblock %}
+{% block title %}Booking Overview{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
-        <h1 class="mb-4">Buchungsübersicht</h1>
+        <h1 class="mb-4">Booking Overview</h1>
 
         <table class="table table-striped table-hover table-bordered">
             <thead class="table-dark">
             <tr>
                 <th>#</th>
-                <th>Benutzer</th>
+                <th>User</th>
                 <th>E-Mail</th>
-                <th>Datum</th>
-                <th>Startzeit</th>
-                <th>Endzeit</th>
-                <th>Stock</th>
-                <th>Raum</th>
-                <th>Tisch</th>
+                <th>Date</th>
+                <th>StartTime</th>
+                <th>EndTime</th>
+                <th>Floor</th>
+                <th>Room</th>
+                <th>Table</th>
             </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="9" class="text-center">Keine Buchungen gefunden</td>
+                    <td colspan="9" class="text-center">No bookings found</td>
                 </tr>
             {% endfor %}
             </tbody>

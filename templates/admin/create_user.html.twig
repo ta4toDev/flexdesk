@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Neuen Benutzer erstellen{% endblock %}
+{% block title %}Create new user{% endblock %}
 
 {% block body %}
     <div class="container mt-4">
-        <h1>Neuen Benutzer erstellen</h1>
+        <h1>Create new user</h1>
         {{ form_start(form) }}
         <div class="form-group">
             {{ form_label(form.firstName) }}
@@ -22,7 +22,7 @@
             {{ form_label(form.password) }}
             {{ form_widget(form.password, { 'attr': { 'class': 'form-control' } }) }}
         </div>
-        <button class="btn btn-primary mt-3">Erstellen</button>
+        <button class="btn btn-primary mt-3">Create</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}
