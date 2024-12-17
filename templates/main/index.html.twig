@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ 'home_title'|trans }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -58,12 +58,12 @@
 
     <div class="centered-container">
         <div>
-            <h1 class="fade-in">Welcome to FlexDesk!</h1>
-            <p class="fade-in-delayed">Manage your office and home office days and reserve your workspace.</p>
-            <a href="{{ path('app_login') }}" class="btn btn-primary btn-lg">Login</a>
+            <h1 class="fade-in">{{ 'welcome_message'|trans }}</h1>
+            <p class="fade-in-delayed">{{ 'home_description'|trans }}</p>
+            <a href="{{ path('app_login') }}" class="btn btn-primary btn-lg">{{ 'login_button'|trans }}</a>
         </div>
         <div class="image-container">
-            <img src="/images/flexdesk-image.jpg" alt="FlexDesk Preview">
+            <img src="/images/flexdesk-image.jpg" alt="{{ 'image_alt_text'|trans }}">
     </div>
 
 {% endblock %}

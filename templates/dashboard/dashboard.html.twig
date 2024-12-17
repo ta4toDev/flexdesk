@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}{{ 'dashboard_title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
@@ -14,36 +14,36 @@
             <div class="col-lg-10">
                 <div class="card shadow-lg">
                     <div class="alert alert-info text-center">
-                        <h2>Dashboard</h2>
+                        <h2>{{ 'dashboard_header'|trans }}</h2>
                     </div>
                     <div class="card-body">
                         <div class="text-center mb-4">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="me-3">
-                                    <h1>Welcome, {{ app.user.firstName }}!</h1>
-                                    <p>Manage your office and home office days and reserve your workspace.</p>
+                                    <h1>{{ 'dashboard_welcome'|trans }} {{ app.user.firstName }}!</h1>
+                                    <p>{{ 'dashboard_description'|trans }}</p>
                                 </div>
                                 <div>
                                     <img src="{{ app.user.photo ? asset('uploads/photos/' ~ app.user.photo) : asset('uploads/photos/default-profile.png') }}"
-                                         alt="Profile Picture"
+                                         alt="{{ 'profile_picture'|trans }}"
                                          class="rounded-circle border border-primary"
                                          style="width: 100px; height: 100px; object-fit: cover;">
                                 </div>
                             </div>
                         </div>
                         <div class="alert alert-info text-center">
-                            <h4>Count of bookings this month: {{ CountOfBookingsThisMonth }}</h4>
+                            <h4>{{ 'bookings_count_this_month'|trans }}: {{ CountOfBookingsThisMonth }}</h4>
                         </div>
                         <div class="table-responsive mt-4">
                             <table class="table table-bordered table-hover">
                                 <thead class="table-light">
                                 <tr>
-                                    <th>Date</th>
-                                    <th>StartTime</th>
-                                    <th>EndTime</th>
-                                    <th>Floor</th>
-                                    <th>Room</th>
-                                    <th>Table</th>
+                                    <th>{{ 'table_date'|trans }}</th>
+                                    <th>{{ 'table_start_time'|trans }}</th>
+                                    <th>{{ 'table_end_time'|trans }}</th>
+                                    <th>{{ 'table_floor'|trans }}</th>
+                                    <th>{{ 'table_room'|trans }}</th>
+                                    <th>{{ 'table_desk'|trans }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -60,14 +60,14 @@
                                     {% endfor %}
                                 {% else %}
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted">You have no bookings yet.</td>
+                                        <td colspan="6" class="text-center text-muted">{{ 'no_bookings_yet'|trans }}</td>
                                     </tr>
                                 {% endif %}
                                 </tbody>
                             </table>
                         </div>
                         <div class="text-center mt-4">
-                            <a href="{{ path('bookings') }}" class="btn btn-primary btn-lg">Start a new booking</a>
+                            <a href="{{ path('bookings') }}" class="btn btn-primary btn-lg">{{ 'start_new_booking'|trans }}</a>
                         </div>
                     </div>
                 </div>

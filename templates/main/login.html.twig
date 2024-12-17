@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}{{ 'login_title'|trans }}{% endblock %}
 
 {% block stylesheets %}
     <style>
         .login-container {
             max-width: 400px;
-            margin: 50px auto;
+            margin: 80px auto;
             padding: 20px;
             background: #ffffff;
             border-radius: 8px;
@@ -21,6 +21,11 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgb(91, 62, 44);
+            z-index: 10;
+        }
         .btn-block {
             margin-top: 1.5rem;
         }
@@ -28,8 +33,9 @@
 {% endblock %}
 
 {% block body %}
+    <div class="container mt-5">
     <div class="login-container">
-        <h2 class="text-center">Login</h2>
+        <h2 class="text-center">{{ 'login_header'|trans }}</h2>
         {% if error %}
             <div class="alert alert-danger">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
@@ -39,12 +45,12 @@
         <!-- login form -->
         <form action="{{ path('app_login') }}" method="post">
             <div class="form-group">
-                <label for="username">E-Mail oder Username</label>
+                <label for="username">{{ 'login_email_username_label'|trans }}</label>
                 <input type="text" id="username" name="_username" class="form-control" required autofocus>
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">{{ 'login_password_label'|trans }}</label>
                 <input type="password" id="password" name="_password" class="form-control" required>
             </div>
 
@@ -52,8 +58,8 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">{{ 'login_button'|trans }}</button>
         </form>
     </div>
-
+    </div>
 {% endblock %}

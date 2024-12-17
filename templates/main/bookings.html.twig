@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bookings{% endblock %}
+{% block title %}{{ 'bookings_title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
         <div class="card shadow-sm">
             <div class="alert alert-info text-center">
-                <h2>Make a Booking</h2>
+                <h2>{{ 'make_booking_header'|trans }}</h2>
             </div>
             <div class="card-body">
                 <!-- Flash messages -->
@@ -24,60 +24,60 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="booking_date" class="form-label">Date:</label>
-                                <input type="text" id="booking_date" name="date" class="form-control" placeholder="Choose a Date" required>
+                                <label for="booking_date" class="form-label">{{ 'date_label'|trans }}:</label>
+                                <input type="text" id="booking_date" name="date" class="form-control" placeholder="{{ 'choose_date'|trans }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="type" class="form-label">Booking Type:</label>
+                                <label for="type" class="form-label">{{ 'booking_type'|trans }}:</label>
                                 <select id="type" name="type" class="form-select">
-                                    <option value="office">Office Day</option>
-                                    <option value="home">Home Office Day</option>
+                                    <option value="office">{{ 'office_day'|trans }}</option>
+                                    <option value="home">{{ 'home_office_day'|trans }}</option>
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="startTime" class="form-label">Start Time:</label>
+                                <label for="startTime" class="form-label">{{ 'start_time'|trans }}:</label>
                                 <input type="time" id="startTime" name="startTime" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="endTime" class="form-label">End Time:</label>
+                                <label for="endTime" class="form-label">{{ 'end_time'|trans }}:</label>
                                 <input type="time" id="endTime" name="endTime" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="floor" class="form-label">Floor:</label>
+                                <label for="floor" class="form-label">{{ 'floor_label'|trans }}:</label>
                                 <select id="floor" name="floor" class="form-select">
-                                    <option value="1">1. Floor</option>
-                                    <option value="2">2. Floor</option>
+                                    <option value="1">{{ 'floor_1'|trans }}</option>
+                                    <option value="2">{{ 'floor_2'|trans }}</option>
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="room" class="form-label">Room:</label>
+                                <label for="room" class="form-label">{{ 'room_label'|trans }}:</label>
                                 <select id="room" name="room" class="form-select">
-                                    <option value="1">Room 1</option>
-                                    <option value="2">Room 2</option>
+                                    <option value="1">{{ 'room_1'|trans }}</option>
+                                    <option value="2">{{ 'room_2'|trans }}</option>
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="desk" class="form-label">Desk:</label>
+                                <label for="desk" class="form-label">{{ 'desk_label'|trans }}:</label>
                                 <select id="desk" name="desk" class="form-select">
-                                    <option value="1">Desk 1</option>
-                                    <option value="2">Desk 2</option>
-                                    <option value="3">Desk 3</option>
-                                    <option value="4">Desk 4</option>
+                                    <option value="1">{{ 'desk_1'|trans }}</option>
+                                    <option value="2">{{ 'desk_2'|trans }}</option>
+                                    <option value="3">{{ 'desk_3'|trans }}</option>
+                                    <option value="4">{{ 'desk_4'|trans }}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Complete Booking</button>
+                        <button type="submit" class="btn btn-primary btn-lg">{{ 'complete_booking'|trans }}</button>
                     </div>
                 </form>
             </div>
